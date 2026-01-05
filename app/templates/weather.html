@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--put the bootstrap and other css shit here when you make it-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles-weather.css') }}">
+        <title>Results</title>
+    </head>
+    <body>
+        <h1>Your Weather Forecast for {{ data.name }} at {{ data.dt | convert(data.timezone) }}:</h1>
+        <p class="weather-description">{{ data.weather[0].main }}, {{ data.weather[0].description }}</p>
+        <div class="text">
+            <div id="temperature">
+                <h2>Temperature:</h2>
+                <p>
+                    <div class="label-head">Current Temperature:</div>
+                    <div id="current-temp"> {{ (((data.main.temp | float) - 273.15) | round(2)) }}°C</div>
+                    <div id="'feels-like"> Feels like {{ (((data.main.feels_like | float) - 273.15) | round(2)) }}°C</div>
+                </p>
+                <p>
+                    <div class="label-head">Minimum: </div>
+                    <div> {{ (((data.main.temp_min | float) - 273.15) | round(2)) }}°C</div>
+                </p>
+                <p>
+                    <div class="label-head">Maximum: </div>
+                    <div> {{ (((data.main.temp_max | float) - 273.15) | round(2)) }}°C</div>
+                </p>
+            </div>
+            <div id="air">
+                <h2>Air/Visibility</h2>
+                <p>
+                    <div class="label-head">Average Visibility: </div>
+                    <div>{{ data.visibility }} m</div>
+                </p>
+                <p>
+                    <div class="label-head">Clouds: </div>
+                    <div>{{ data.clouds.all }}%</div>
+                </p>
+                <p>
+                    <div class="label-head">Humidity: </div>
+                    <div>{{ data.main.humidity }}%</div>
+                </p>
+                <p>
+                    <div class="label-head">Pressure: </div>
+                    <div>{{ data.main.pressure }} hPa</div>
+                </p>
+            </div>
+            <div id="wind">
+                <h2>Wind:</h2>
+                <p>
+                    <div class="label-head">Wind Speed: </div>
+                    <div>{{ data.wind.speed }} m/s</div>
+                </p>
+                <p>
+                    <div class="label-head">Wind Direction: </div>
+                    <div>{{ data.wind.deg }} degrees</div>
+                </p>
+            </div>
+            <div id="times">
+                <h2>Sunrise/Sunset Times:</h2>
+                <p>
+                    <div class="label-head">Sunrise: </div>
+                    <div>{{ data.sys.sunrise | convert(data.timezone) }}</div>
+                </p>
+                <p>
+                    <div class="label-head">Sunset: </div>
+                    <div>{{ data.sys.sunset | convert(data.timezone) }}</div>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

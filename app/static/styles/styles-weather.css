@@ -1,0 +1,105 @@
+body {
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    margin-top: 10vh;
+}
+
+h1 {
+    font-size: 5rem;
+    animation-name: fadein;
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+}
+
+.weather-description {
+    font-size: 3rem;
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+    animation-delay: 0.25s;
+    animation-fill-mode: forwards;
+}
+
+.label-head {
+    font-weight: bold;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1rem;
+    font-size: 1.75rem;
+
+}
+
+#temperature {
+    display: inline-flex;
+    order: 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+#air {
+    display: inline-flex;
+    order: 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+    animation-delay: 0.75s;
+    animation-fill-mode: forwards;
+}
+
+#wind {
+    display: inline-flex;
+    order: 2;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+#times {
+    display: inline-flex;
+    order: 2;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+    animation-delay: 1.25s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        margin-top: 20vh;
+    }
+    100% {
+        opacity: 1;
+    }
+}

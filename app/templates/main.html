@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--put the bootstrap and other css shit here when you make it-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles-main.css') }}">
+        <title>Home</title>
+    </head>
+    <body>
+        <h1>Enter your location:</h1><br>
+        <form method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.city.label }}<br>
+                {{ form.city(id='city') }}
+            </p>
+            <p id="america-block">
+                {{ form.america.label }}<br>
+                {{ form.america(id='america') }}
+            </p>
+            <p id="state-block" class="hidden">
+                {{ form.state.label }}<br>
+                {{ form.state(id='state') }}
+            </p>
+            <p>
+                {{ form.country.label }}<br>
+                {{ form.country(id='country') }}
+            </p>
+            <p>
+                <input type="submit" value="Enter">
+            </p>
+        </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () //i hate javascript i hate javascript AHHHHH
+            {
+                const checkbox = document.getElementById('america');
+                const stateblock = document.getElementById('state-block')
+                
+                function makevisible()
+                {
+                    if (checkbox.checked)
+                {
+                    stateblock.classList.remove('hidden');
+                }
+                else
+                {
+                    stateblock.classList.add('hidden');
+                }
+                }
+                checkbox.addEventListener('change', makevisible);
+                makevisible();
+            })
+        </script>
+    </body>
+</html>

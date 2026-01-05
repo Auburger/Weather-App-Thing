@@ -1,0 +1,36 @@
+body {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;  
+    margin-top: 25vh;
+}
+
+h1 {
+    font-size: 5rem;
+    animation-name: fadein;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+
+p {
+    opacity: 0;
+    font-size: 2rem;
+    animation-name: fadein;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        margin-top: 30vh;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.hidden {display: none; }
